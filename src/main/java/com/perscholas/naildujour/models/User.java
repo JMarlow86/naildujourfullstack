@@ -5,9 +5,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,14 +18,18 @@ import java.util.Set;
 @Table(name = "customer")
 @Entity
 
-public class Customer {
+public class User {
 
     @Id @NonNull
-    int phone;
+    String email;
+    @NonNull
+    Role role;
+    @NonNull
+    String phone;
+
     @NonNull
     String name;
-    @NonNull
-    String email;
+
     @NonNull
     String pronoun;
     @NonNull
@@ -41,7 +43,7 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
+        User customer = (User) o;
         return phone == customer.phone && name.equals(customer.name) && email.equals(customer.email);
     }
 
