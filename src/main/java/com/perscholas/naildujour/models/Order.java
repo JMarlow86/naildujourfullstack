@@ -19,20 +19,20 @@ import java.util.Set;
 @Slf4j
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "order")
+@Table(name = "NAIL_ORDER")
 @Entity
 
 public class Order {
 
     @NonNull
-    @Id @Column @GeneratedValue
+    @Id  @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @NonNull @Column
+    @NonNull
     String email;
 
-    @NonNull @Column
-    String drinkName;
+    @NonNull
+    String beverage;
 
 
 

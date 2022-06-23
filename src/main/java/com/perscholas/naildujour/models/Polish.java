@@ -24,7 +24,7 @@ public class Polish {
 
     @Id
     @NonNull
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     @NonNull
     String colorName;

@@ -15,10 +15,10 @@ import java.util.Objects;
 @Slf4j
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "app_user")
+@Table(name="NAIL_USER")
 @Entity
 
-public class App_User {
+public class User {
 
     @Id @NonNull
     String email;
@@ -43,7 +43,7 @@ public class App_User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        App_User customer = (App_User) o;
+        User customer = (User) o;
         return phone == customer.phone && name.equals(customer.name) && email.equals(customer.email);
     }
 

@@ -14,5 +14,5 @@ import javax.transaction.Transactional;
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 @Transactional(rollbackOn = {DataAccessException.class})
 
-public class App_UserService {
+public class UserService {
 }

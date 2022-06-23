@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.*;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequestMapping("app_user")
 
-public class App_UserController {
+public class UserController {
 }
