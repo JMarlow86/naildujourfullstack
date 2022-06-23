@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class CustomerServicesView {
+public class App_UserOrdersView {
     String customerName;
     String toePolish;
     String fingerPolish;

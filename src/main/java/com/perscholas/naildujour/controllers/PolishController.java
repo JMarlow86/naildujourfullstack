@@ -1,6 +1,5 @@
 package com.perscholas.naildujour.controllers;
 
-import com.perscholas.naildujour.models.Employee;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;

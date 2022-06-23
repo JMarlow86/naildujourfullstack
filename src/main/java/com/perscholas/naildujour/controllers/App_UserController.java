@@ -1,6 +1,6 @@
 package com.perscholas.naildujour.controllers;
 
-import com.perscholas.naildujour.models.Employee;
+
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller @Slf4j
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-@RequestMapping("employee")
+@RequestMapping("app_user")
 
-public class EmployeeController {
+public class App_UserController {
 }

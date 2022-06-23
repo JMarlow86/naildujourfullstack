@@ -15,15 +15,17 @@ import java.util.Objects;
 @Slf4j
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "customer")
+@Table(name = "app_user")
 @Entity
 
-public class User {
+public class App_User {
 
     @Id @NonNull
     String email;
+
     @NonNull
-    Role role;
+   String role;
+
     @NonNull
     String phone;
 
@@ -32,18 +34,16 @@ public class User {
 
     @NonNull
     String pronoun;
+
     @NonNull
-    String beverage;
-    @NonNull
-    String polishToes;
-    @NonNull
-    String polishFingers;
+    String beverageName;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User customer = (User) o;
+        App_User customer = (App_User) o;
         return phone == customer.phone && name.equals(customer.name) && email.equals(customer.email);
     }
 

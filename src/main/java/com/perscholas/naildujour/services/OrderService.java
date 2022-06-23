@@ -1,6 +1,6 @@
 package com.perscholas.naildujour.services;
 
-import com.perscholas.naildujour.models.Employee;
+
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -14,5 +14,5 @@ import javax.transaction.Transactional;
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 @Transactional(rollbackOn = {DataAccessException.class})
 
-public class EmployeeService {
+public class OrderService {
 }

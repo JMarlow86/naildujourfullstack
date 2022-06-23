@@ -24,9 +24,9 @@ import java.util.Set;
 
 public class Beverage {
 
-    @Id @NonNull
+    @Id @NonNull @Column
     String name;
-    @NonNull
+    @NonNull @Column
     String type;
 
     @Override

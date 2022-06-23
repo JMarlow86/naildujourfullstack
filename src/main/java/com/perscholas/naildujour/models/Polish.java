@@ -22,22 +22,27 @@ import java.util.Set;
 
 public class Polish {
 
-    @Id @NonNull
-    String formula;
+    @Id
+    @NonNull
+    @GeneratedValue
+    int id;
     @NonNull
     String colorName;
 
+    @ManyToMany(mappedBy = "polishes", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+    private Set<Order> orders = new LinkedHashSet<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Polish polish = (Polish) o;
-        return formula.equals(polish.formula) && colorName.equals(polish.colorName);
+        return id == polish.id && colorName.equals(polish.colorName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(formula, colorName);
+        return Objects.hash(id, colorName);
     }
 }
+
