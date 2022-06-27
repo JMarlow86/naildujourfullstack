@@ -12,4 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("app_user")
 
 public class UserController {
+    @RequestMapping({"/login"})
+    public String showLogin(){
+        return "";
+
+    }
 }

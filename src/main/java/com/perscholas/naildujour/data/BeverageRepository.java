@@ -8,5 +8,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface BeverageRepository {
+@Repository
+public interface BeverageRepository extends JpaRepository<Beverage, String> {
+
+//    @Query(nativeQuery = true)
+//    List<Beverage> findUserBeverage(String drinkName);
+//
+//    @Query(value = "select * from beverage where type = :alcohol", nativeQuery = true)
+//    List <Beverage>findAllAlcohol(String type);
+ List<Beverage> findByTypeIgnoreCase(String type);
+
 }

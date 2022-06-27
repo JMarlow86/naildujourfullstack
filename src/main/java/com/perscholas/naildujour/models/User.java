@@ -38,6 +38,10 @@ public class User {
     @NonNull
     String beverageName;
 
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_email")
+    private User user;
+
 
     @Override
     public boolean equals(Object o) {

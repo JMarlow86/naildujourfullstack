@@ -22,12 +22,29 @@ import java.util.Set;
 @Entity
 
 
+
+
 public class Beverage {
 
-    @Id @NonNull @Column
+    @Id @NonNull
     String name;
-    @NonNull @Column
+    @NonNull
     String type;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "beverage_name")
+    private Beverage beverage;
+
+    @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Beverage> beverages = new LinkedHashSet<>();
+
+    public Beverage(String name, @NonNull String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    //Helper Method
+
 
     @Override
     public boolean equals(Object o) {
