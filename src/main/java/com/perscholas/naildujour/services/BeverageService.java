@@ -49,6 +49,12 @@ public class BeverageService {
     public List<Beverage> findByType(String type){
         return beverageRepository.findByTypeIgnoreCase(type);
     }
+
+    public void saveOrUpdate(Beverage b){
+        log.info(b.toString());
+        beverageRepository.save(b);
+
+    }
 }
 
 

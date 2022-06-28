@@ -33,6 +33,7 @@ public class Beverage {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "beverage_name")
+
     private Beverage beverage;
 
     @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL, orphanRemoval = true)
