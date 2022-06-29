@@ -5,7 +5,10 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,23 +27,23 @@ public class User {
     String email;
 
     @NonNull
-   String role;
+    String name;
 
     @NonNull
     String phone;
 
     @NonNull
-    String name;
+    String role;
 
     @NonNull
     String pronoun;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     @NonNull
-    String beverageName;
+    Order order;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_email")
-    private User user;
+
 
 
     @Override
@@ -56,7 +59,7 @@ public class User {
         return Objects.hash(phone, name, email);
     }
 
-    //one to many customers to service menus
+
 
 
 }

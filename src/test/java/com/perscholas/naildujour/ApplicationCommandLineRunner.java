@@ -35,24 +35,15 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     PolishService polishService;
 
-    UserRepository userRepository;
 
-    BeverageRepository beverageRepository;
-
-    OrderRepository orderRepository;
-
-    PolishRepository polishRepository;
 
     @Autowired
-    public ApplicationCommandLineRunner(UserService userService, BeverageService beverageService, OrderService orderService, PolishService polishService, UserRepository userRepository, BeverageRepository beverageRepository, OrderRepository orderRepository, PolishRepository polishRepository) {
+    public ApplicationCommandLineRunner(UserService userService, BeverageService beverageService, OrderService orderService, PolishService polishService) {
         this.userService = userService;
         this.beverageService = beverageService;
         this.orderService = orderService;
         this.polishService = polishService;
-        this.userRepository = userRepository;
-        this.beverageRepository = beverageRepository;
-        this.orderRepository = orderRepository;
-        this.polishRepository = polishRepository;
+
     }
     @PostConstruct
     public void postConstruct() { log.warn("============ Application CommandLine Runner ============"); }
@@ -65,7 +56,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         wine.setName("white");
         wine.setType("alcoholic");
 
-        beverageRepository.save(wine);
+
 
 
     }

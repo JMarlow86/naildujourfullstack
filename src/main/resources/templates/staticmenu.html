@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+  <title>Check In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">  -->
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/staticmenu.css}">
+    <link rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid" id="container">
+  <div class="row">
+    <div class="col-sm-2 back">
+<a th:href="@{/index}"style="color: black;"><--</a>
+
+</div>
+     <div class="row" id="title">
+    <div class="col-md-12"> 
+      <span id="nail">Nail</span>
+      <span id="dujour">dujour</span>
+   </div>
+  </div> 
+  <hr>
+
+  <div class="row" id="menu">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" id="col2">
+     
+          <h1 id="up">Prix Fixe</h1>
+          <span id="price">115</span>
+          <h3><em>4 Courses</em><h3>
+            <span>_______________</span>
+      <p>
+       <br>
+         <span><em>The Soak</em></span> 
+        <br>
+          warm hand and foot bath infused with organic frankincense, sandalwood, and lemongrass essential oils
+          <br>
+          jasmine petal float
+          <br>
+          trim and file
+        <br>
+        <span>_______________</span>
+        <br>
+        <br>
+        <span><em>The Treatment</em></span>
+        <br>
+          fine powder exfoliant comprised of crushed jade and jasmine rice
+          green tea 
+          <br>
+          aloe mask
+          <br>
+          steamed towel
+          <br>
+          <span>_______________</span>
+        <br>
+        <br>
+        <span><em>The Massage</em></span> 
+        <br>
+          hinoki, juniper, cypress, rosalina
+        <br>
+          spike lavender cream
+        <br>
+        <span>_______________</span>
+        <br>
+        <br>
+        <span><em>The Polish</em></span>
+        <br>
+          vegan, cruelty free, free from harmful ingredients
+          <br>
+          expertly applied
+          <br>
+          high shine top coat
+      </p>
+      </div>
+  </div>
+</div>
+</body>
+</html>

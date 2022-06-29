@@ -29,8 +29,7 @@ public class Polish {
     @NonNull
     String colorName;
 
-    @ManyToMany(mappedBy = "polishes", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    private Set<Order> orders = new LinkedHashSet<>();
+
 
     @Override
     public boolean equals(Object o) {
