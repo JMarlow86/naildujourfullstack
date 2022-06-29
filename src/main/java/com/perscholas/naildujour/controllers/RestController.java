@@ -1,7 +1,6 @@
 package com.perscholas.naildujour.controllers;
 
 import com.perscholas.naildujour.models.Beverage;
-
 import com.perscholas.naildujour.services.BeverageService;
 
 
@@ -29,26 +28,25 @@ public class RestController {
         this.beverageService = beverageService;
     }
 
+    //finallbeverage working in localhost
     @GetMapping("/findallbeverage")
     public List<Beverage> getAllBeverages() {
 
         return beverageService.findAll();
     }
+}
 //    @GetMapping(value="/bevtype")
-//    public List<Beverage> findBeveragesByType(@RequestParam String type){
-//        return beverageService.findBeveragesByType(type);
+//    public List<Beverage> findBeveragesByType(@RequestParam String type) {
+//        return Beverage beverageService.findBeveragesByType(type);
 //    }
+
 
 //    @GetMapping(value="/vintage")
 //    public Iterable<Wine> findByVintage(@RequestParam String vintage) {
 //        return wineService.findWinesByVintage(vintage);
 //    }
-    }
 
-//Beverage findBeverageByName(String name);
-//    Beverage findBeverageByType(String type);
-//    List<Beverage> findAll();
-//    void deleteBeverageByName(String name);
+
 
 
 

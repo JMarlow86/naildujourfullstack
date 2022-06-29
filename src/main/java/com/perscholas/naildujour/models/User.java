@@ -41,7 +41,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "order_id")
     @NonNull
-    Order order;
+
 
 
 

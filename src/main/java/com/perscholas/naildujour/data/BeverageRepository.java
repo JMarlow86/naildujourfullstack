@@ -9,7 +9,8 @@ import java.util.List;
 public interface BeverageRepository extends JpaRepository<Beverage, Integer> {
 
  Beverage findBeverageByName(String name);
-// List<Beverage> findBeveragesByType(String type);
+
+// List<Beverage> findBeverageByType(String type);
  List<Beverage> findAll();
  void deleteBeverageByName(String name);
 }

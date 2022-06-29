@@ -2,6 +2,7 @@ package com.perscholas.naildujour;
 
 import com.perscholas.naildujour.data.BeverageRepository;
 import com.perscholas.naildujour.models.Beverage;
+import com.perscholas.naildujour.models.User;
 import com.perscholas.naildujour.services.BeverageService;
 import com.perscholas.naildujour.services.OrderService;
 import com.perscholas.naildujour.services.PolishService;
@@ -51,7 +52,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         beverageService.saveOrUpdate(new Beverage( "Wine", "alcoholic"));
         beverageService.saveOrUpdate(new Beverage( "water", "na"));
 
-
+        userService.saveOrUpdate(new User("Jamie@gmail.com", "jamie", "2123338888","boss","she/her"));
 
 
     }
