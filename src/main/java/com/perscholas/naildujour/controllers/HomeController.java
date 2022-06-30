@@ -20,6 +20,9 @@ public class HomeController {
         return "staticmenu";
     }
 
-
+    @GetMapping("/about")
+    String getAbout(){
+        return "about";
+    }
 
 }

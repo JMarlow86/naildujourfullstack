@@ -34,18 +34,18 @@ public class RestController {
 
         return beverageService.findAll();
     }
-}
-//    @GetMapping(value="/bevtype")
-//    public List<Beverage> findBeveragesByType(@RequestParam String type) {
-//        return Beverage beverageService.findBeveragesByType(type);
-//    }
+
+    @GetMapping(value="/bevtype")
+    public List<Beverage> findBeveragesByType(@RequestParam String type) {
+        return beverageService.findBeveragesByType(type);
+    }
 
 
 //    @GetMapping(value="/vintage")
 //    public Iterable<Wine> findByVintage(@RequestParam String vintage) {
 //        return wineService.findWinesByVintage(vintage);
 //    }
-
+}
 
 
 

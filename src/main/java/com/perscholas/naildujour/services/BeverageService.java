@@ -1,13 +1,9 @@
 package com.perscholas.naildujour.services;
 
-import com.perscholas.naildujour.data.UserRepository;
+
 import com.perscholas.naildujour.data.BeverageRepository;
-import com.perscholas.naildujour.data.OrderRepository;
-import com.perscholas.naildujour.data.PolishRepository;
-import com.perscholas.naildujour.models.User;
 import com.perscholas.naildujour.models.Beverage;
-import com.perscholas.naildujour.models.Order;
-import com.perscholas.naildujour.models.Polish;
+
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -25,13 +21,7 @@ import java.util.NoSuchElementException;
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 @Transactional(rollbackOn = {DataAccessException.class})
 public class BeverageService {
-
-//    UserRepository userRepository;
-
     BeverageRepository beverageRepository;
-
-//    OrderRepository orderRepository;
-
 
     @Autowired
     public BeverageService(BeverageRepository beverageRepository) {
@@ -39,22 +29,36 @@ public class BeverageService {
 
 
     }
+//    Beverage findBeverageByName(String name);
+//    Beverage findBeverageByType(String type);
+//    List<Beverage> findAll();
+//    void deleteBeverageByName(String name);
 
-    public List<Beverage> findAll() {return beverageRepository.findAll();}
-    @Transactional(rollbackOn = {NoSuchElementException.class})
-    public Beverage findByName(String drinkName) throws NoSuchElementException{
-        return beverageRepository.findById(drinkName).orElseThrow();
+    public List<Beverage> findAll() {
+        return beverageRepository.findAll();
     }
 
-    public List<Beverage> findByType(String type){
-        return beverageRepository.findByTypeIgnoreCase(type);
+    public Beverage findBeverageByName(String drinkName) {
+
+        return beverageRepository.findBeverageByName(drinkName);
+    }
+
+    public List<Beverage> findBeveragesByType(String type) {
+        return beverageRepository.findBeverageByType(type);
+    }
+
+
+    @Transactional
+    public void deleteBeverageByName(String name){
+
+        beverageRepository.deleteBeverageByName(name);
     }
 
     public void saveOrUpdate(Beverage b){
-        log.info(b.toString());
-        beverageRepository.save(b);
+     beverageRepository.save(b);
 
     }
+
 }
 
 

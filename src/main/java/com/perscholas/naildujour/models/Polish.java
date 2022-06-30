@@ -25,9 +25,9 @@ public class Polish {
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    int polishId;
     @NonNull
-    String colorName;
+    String polishName;
 
 
 
@@ -36,12 +36,12 @@ public class Polish {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Polish polish = (Polish) o;
-        return id == polish.id && colorName.equals(polish.colorName);
+        return polishId == polish.polishId && polishName.equals(polish.polishName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, colorName);
+        return Objects.hash(polishId, polishName);
     }
 }
 
