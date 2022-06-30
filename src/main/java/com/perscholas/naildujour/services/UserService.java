@@ -40,16 +40,16 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findUserByName(String name) {
-        return userRepository.findUserByName(name);
+    public User findUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
     }
 
     public User findUserByRole(String role){
         return userRepository.findUserByRole(role);
     }
     @Transactional
-    public void deleteUserByName(String name){
-        userRepository.deleteUserByName(name);
+    public void deleteUserByEmail(String email){
+        userRepository.deleteUserByEmail(email);
 
     }
 

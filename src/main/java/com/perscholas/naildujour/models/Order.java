@@ -1,52 +1,46 @@
 package com.perscholas.naildujour.models;
 
 
-
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @NoArgsConstructor
-@AllArgsConstructor
-//@RequiredArgsConstructor
 @Getter
 @Setter
 @Slf4j
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "NAIL_ORDER")
+@SecondaryTable(name="user_orders",pkJoinColumns = @PrimaryKeyJoinColumn(name="orderId"))
 @Entity
-
 public class Order {
 
     @NonNull
+    @Column
+    @PrimaryKeyJoinColumn
     @Id  @GeneratedValue(strategy = GenerationType.AUTO)
     int orderId;
 
-    @NonNull
-    String name;
+    @OneToOne
+    User user;
 
-    @NonNull
-    String drink;
+    @NonNull @ManyToOne
+    Beverage beverage;
 
-    @NonNull
-    String polish;
+    @NonNull @ManyToOne
+    Polish polish;
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinTable(name = "order_polishes",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "polish_id"))
-    private Set<Polish> polishes = new LinkedHashSet<>();
 
-    public Order (int orderId, String name, String drink, String polish){
+
+    public Order (int orderId, User user, Beverage beverage, Polish polish){
         this.orderId = orderId;
-        this.name = name;
-        this.drink = drink;
+        this.user = user;
+        this.beverage = beverage;
         this.polish = polish;
     }
 
@@ -55,12 +49,11 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderId == order.orderId && name.equals(order.name) && drink.equals(order.drink) && polish.equals(order.polish) && Objects.equals(polishes, order.polishes);
+        return orderId == order.orderId && user.equals(order.user) && beverage.equals(order.beverage) && polish.equals(order.polish);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, name, drink, polish, polishes);
+        return Objects.hash(orderId, user, beverage, polish);
     }
-
 }

@@ -5,9 +5,9 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
+
 import java.util.Objects;
-import java.util.Set;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,10 +23,10 @@ import java.util.Set;
 public class Polish {
 
     @Id
-    @NonNull
+    @NonNull @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     int polishId;
-    @NonNull
+    @NonNull @Column
     String polishName;
 
 

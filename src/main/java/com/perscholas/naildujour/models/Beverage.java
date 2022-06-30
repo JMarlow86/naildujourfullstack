@@ -10,8 +10,6 @@ import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor
-@AllArgsConstructor
-//@RequiredArgsConstructor
 @Getter
 @Setter
 @Slf4j
@@ -25,23 +23,18 @@ public class Beverage {
 
     @NonNull
     @Id
+    @Column
     String name;
 
-    @NonNull
+    @NonNull @Column
     String type;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "beverage_name")
 
-    private Beverage beverage;
-
-    @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Beverage> beverages = new LinkedHashSet<>();
-
-    public Beverage(String name, @NonNull String type) {
+    public Beverage(String name, String type) {
         this.name = name;
         this.type = type;
     }
+
 
 
 

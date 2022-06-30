@@ -41,10 +41,7 @@ public class RestController {
     }
 
 
-//    @GetMapping(value="/vintage")
-//    public Iterable<Wine> findByVintage(@RequestParam String vintage) {
-//        return wineService.findWinesByVintage(vintage);
-//    }
+
 }
 
 
