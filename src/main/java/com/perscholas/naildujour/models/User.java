@@ -5,11 +5,15 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.HashSet;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 @Slf4j
@@ -17,30 +21,38 @@ import java.util.Objects;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name="NAIL_USER")
 @Entity
-
 public class User {
 
-    @Id @NonNull
+    @Id @NonNull  @Column
     String email;
 
-    @NonNull
-   String role;
-
-    @NonNull
-    String phone;
-
-    @NonNull
+     @Column
     String name;
 
-    @NonNull
+     @Column
+    String phone;
+
+     @Column
+    String role;
+
+     @Column
     String pronoun;
 
-    @NonNull
-    String beverageName;
+    @OneToMany
+    @Column
+    Set<Order> orders;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_email")
-    private User user;
+
+
+
+    public User(String email, String name, String phone, String role, String pronoun){
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.role = role;
+        this.pronoun = pronoun;
+        this.orders = new HashSet<Order>();
+    }
 
 
     @Override
@@ -56,7 +68,7 @@ public class User {
         return Objects.hash(phone, name, email);
     }
 
-    //one to many customers to service menus
+
 
 
 }

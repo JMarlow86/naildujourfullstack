@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+  <head>
+    <title>Log In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{login.css}">
+    <link rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid" id="container">
+      <div class="row" id="title">
+        <div class="col-sm-2 b">
+          <a href="@{/index}"><--</a>
+        </div>
+        <div class="col-md-10" id="company"> 
+          <span id="nail">Nail</span>
+          <span id="dujour">dujour</span>
+        </div>
+      </div> 
+    </div>
+    <form method="post" action="" class="ccform">
+      <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Full Name" required>
+      </div>
+      <div class="col-md-6 mb-4">
+        <h6 class="mb-2 pb-1">Pronouns: </h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
+          <label class="form-check-label" for="femaleGender">She/Her</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
+            <label class="form-check-label" for="maleGender">He/Him</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" value="option3" />
+            <label class="form-check-label" for="otherGender">They/Them</label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-envelope fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Email" required>
+      </div>
+      <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-mobile-phone fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Phone" req>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 s">
+            <div class="wrapper">
+              <a href="@{/order}">Submit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+
+
+
+
+

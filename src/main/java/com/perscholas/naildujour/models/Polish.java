@@ -5,9 +5,9 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
+
 import java.util.Objects;
-import java.util.Set;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,26 +23,25 @@ import java.util.Set;
 public class Polish {
 
     @Id
-    @NonNull
+    @NonNull @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
-    @NonNull
-    String colorName;
+    int polishId;
+    @NonNull @Column
+    String polishName;
 
-    @ManyToMany(mappedBy = "polishes", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    private Set<Order> orders = new LinkedHashSet<>();
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Polish polish = (Polish) o;
-        return id == polish.id && colorName.equals(polish.colorName);
+        return polishId == polish.polishId && polishName.equals(polish.polishName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, colorName);
+        return Objects.hash(polishId, polishName);
     }
 }
 

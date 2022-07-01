@@ -1,0 +1,48 @@
+body{
+  background-color: #A0F6FE;
+  background-image: url('../images/aboutimg.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;   
+  background-position: center;
+  background-size: contain;
+}
+ 
+.back{
+    margin-left: 240px;
+    margin-top: 230px;
+    letter-spacing: 1px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+  a{
+    
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: black;
+     border-top: 2px solid black; 
+    border-bottom: 2px solid black;
+    padding: 10px;
+    letter-spacing: 2px;
+    transition: all .25s; 
+    cursor: pointer;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  a:hover{
+   letter-spacing: 15px;
+   color: black;
+   border-top: 2px solid #0AA8D4;
+   border-bottom: 2px solid #0AA8D4;
+   border-right: 2px solid #0AA8D4;
+   border-left: 2px solid #0AA8D4;
+   border-radius: 10px;
+   background-image: linear-gradient(45deg, #FF66C4 0%, #A0F6FE 51%, #FF66C4 100%);
+   font-weight: 700;
+   text-align: center;
+
+   
+
+  }

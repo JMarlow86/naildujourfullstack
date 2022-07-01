@@ -1,0 +1,124 @@
+body {
+  
+  background-image: url("../images/flowers.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+/* NAVIGATION */
+
+.back {
+
+  margin-left: 150px;
+  margin-top: 80px;
+  letter-spacing: 1px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  
+}
+a {
+  
+  font-size: 24px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-decoration: none;
+  color: black;
+   border-top: 2px solid black; 
+  border-bottom: 2px solid black;
+  padding: 10px;
+  letter-spacing: 2px;
+  transition: all .25s; 
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+
+}
+
+a:hover {
+
+ letter-spacing: 15px;
+ color: black;
+ border-top: 2px solid #0AA8D4;
+ border-bottom: 2px solid #0AA8D4;
+ border-right: 2px solid #0AA8D4;
+ border-left: 2px solid #0AA8D4;
+ border-radius: 10px;
+ background-image: linear-gradient(45deg, #FF66C4 0%, #A0F6FE 51%, #FF66C4 100%);
+ font-weight: 700;
+ text-align: center;
+
+}
+
+/* HEADING */
+#title {
+  text-align: center;
+  padding-top: 24px;
+  padding-right: 492px;
+
+}
+
+
+#nail {
+
+  text-align: center;
+  color: black;
+  text-shadow: 6px 1px #A0F6FE;
+  padding-left: 200px;
+  font-size: 200pt;
+  font-family: didot;
+
+}
+
+#dujour {
+
+  text-align: center;
+  box-shadow: 2px 1px black;
+  border-radius: 25px;
+  text-shadow: 6px 1px black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 100px;
+  background: -webkit-linear-gradient(#FF66C4, #EAED2B,#FF66C4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/* MENU HEADER */
+#col2 {
+
+  padding: 20px;
+        background: rgba(255, 255, 255, 0.4);
+        color: black;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        margin-bottom: 30px;
+        border: 1px solid black;
+        border-radius: 25px;
+}
+
+#up{
+  
+  font-family: didot;
+  font-size: 40pt;
+  color: black
+
+}
+
+#price {
+  font-size: 20pt;
+  text-decoration: underline;
+
+}
+
+
+
+
+
+
+ 
+  
+    
+  
+
+
+
