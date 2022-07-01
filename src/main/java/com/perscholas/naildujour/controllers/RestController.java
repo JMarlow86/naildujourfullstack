@@ -28,7 +28,7 @@ public class RestController {
         this.beverageService = beverageService;
     }
 
-    //finallbeverage working in localhost
+    //findallbeverage working in localhost
     @GetMapping("/findallbeverage")
     public List<Beverage> getAllBeverages() {
 
@@ -38,6 +38,11 @@ public class RestController {
     @GetMapping(value="/bevtype")
     public List<Beverage> findBeveragesByType(@RequestParam String type) {
         return beverageService.findBeveragesByType(type);
+    }
+
+    @GetMapping("/bevname")
+    public Beverage findBeverageByName(String name) {
+        return beverageService.findBeverageByName(name);
     }
 
 

@@ -38,9 +38,9 @@ public class BeverageService {
         return beverageRepository.findAll();
     }
 
-    public Beverage findBeverageByName(String drinkName) {
+    public Beverage findBeverageByName(String name) {
 
-        return beverageRepository.findBeverageByName(drinkName);
+        return beverageRepository.findBeverageByName(name);
     }
 
     public List<Beverage> findBeveragesByType(String type) {
