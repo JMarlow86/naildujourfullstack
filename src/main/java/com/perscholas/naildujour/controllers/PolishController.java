@@ -1,14 +1,28 @@
 package com.perscholas.naildujour.controllers;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
+import com.perscholas.naildujour.models.Polish;
+import com.perscholas.naildujour.services.PolishService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Controller @Slf4j
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-@RequestMapping("polish")
+import java.util.List;
+
+@org.springframework.web.bind.annotation.RestController
+@CrossOrigin(origins = "http://localhost:8080")
 
 public class PolishController {
+
+    PolishService polishService;
+
+    @Autowired
+    public PolishController(PolishService polishService) {
+        this.polishService = polishService;
+
+    }
+    @GetMapping("/findallpolish")
+    public List<Polish> getAllPolish() {
+        return polishService.findAll();
+    }
+
 }
+

@@ -10,7 +10,7 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping
+    @GetMapping("")
     String getIndex(){
         return "index";
     }
@@ -24,5 +24,15 @@ public class HomeController {
     String getAbout(){
         return "about";
     }
+//    @GetMapping("/inventory")
+//    String getInventory(){
+//        return "inventory";
+//    }
+
+//@GetMapping("/login")
+//    String login(){
+//        return "login";
+//}
+
 
 }
