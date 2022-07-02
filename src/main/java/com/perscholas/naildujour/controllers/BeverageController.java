@@ -11,19 +11,16 @@ import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 @CrossOrigin(origins = "http://localhost:8080")
-//@Controller
-//@Slf4j
-//@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 
 
 
 
-public class RestController {
+public class BeverageController {
 
     BeverageService beverageService;
 
     @Autowired
-    public RestController(BeverageService beverageService) {
+    public BeverageController(BeverageService beverageService) {
 
         this.beverageService = beverageService;
     }
@@ -40,12 +37,11 @@ public class RestController {
         return beverageService.findBeveragesByType(type);
     }
 
-    @GetMapping("/bevname")
-    public Beverage findBeverageByName(String name) {
-        return beverageService.findBeverageByName(name);
+    @GetMapping(value="/bevname")
+    public List <Beverage> findBeverageByName(@RequestParam String name) {
+
+        return (List<Beverage>) beverageService.findBeverageByName(name);
     }
-
-
 
 }
 

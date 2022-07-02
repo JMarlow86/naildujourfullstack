@@ -29,18 +29,18 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
     PolishService polishService;
 
-    BeverageRepository beverageRepository;
+
 
 
 
 
     @Autowired
-    public ApplicationCommandLineRunner(UserService userService, BeverageService beverageService, OrderService orderService, PolishService polishService, BeverageRepository beverageRepository) {
+    public ApplicationCommandLineRunner(UserService userService, BeverageService beverageService, OrderService orderService, PolishService polishService) {
         this.userService = userService;
         this.beverageService = beverageService;
         this.orderService = orderService;
         this.polishService = polishService;
-        this.beverageRepository = beverageRepository;
+
 
     }
     @PostConstruct
@@ -51,6 +51,8 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         beverageService.saveOrUpdate(new Beverage( "Red Wine", "alcoholic"));
+        beverageService.saveOrUpdate(new Beverage( "Purple Drank", "alcoholic"));
+        beverageService.saveOrUpdate(new Beverage( "Rose Wine", "alcoholic"));
         beverageService.saveOrUpdate(new Beverage( "White Wine", "alcoholic"));
         beverageService.saveOrUpdate(new Beverage( "Prosecco", "alcoholic"));
         beverageService.saveOrUpdate(new Beverage( "Pale Ale", "alcoholic"));
@@ -73,5 +75,6 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         polishService.saveOrUpdate(new Polish(6,"OOP-ink"));
         polishService.saveOrUpdate(new Polish(7,"Intelli-grey"));
         polishService.saveOrUpdate(new Polish(8,"Maven Mauve"));
+        polishService.saveOrUpdate(new Polish(9,"_build Blue"));
     }
 }
