@@ -61,10 +61,8 @@ public class UserController {
     }
 //   return new RedirectView("/users");
 
-    @GetMapping("/inventory")
-    public String manageInventory(){
-        return "inventory";
-    }
+
+
 
     @GetMapping("/saveupdateuser")
     public String saveUpdateUser(RedirectAttributes model, @ModelAttribute("user") User user) {
@@ -74,10 +72,17 @@ public class UserController {
         return "usercreateupdate";
     }
     //This is saving users to database connected to Login.html
-    @PostMapping("/login")
-    public String submitForm(@ModelAttribute("user") User user, Model model) {
-        user.setRole("customer");
-        userService.saveOrUpdate(user);
+    @PostMapping("/adduser")
+    public String submitForm(@ModelAttribute("user") User newUser, Model model) {
+        List<User> allUsers = userService.findAll();
+        for (User user : allUsers) {
+            if(user.getEmail().equals(newUser.getEmail())){
+                model.addAttribute("message", "User is already registered");
+                return "login";
+            }
+        }
+        newUser.setRole("customer");
+        userService.saveOrUpdate(newUser);
         List<Polish> polishes = polishService.findAll();
         List<Beverage> beverages = beverageService.findAll();
         model.addAttribute("polishes", polishes);

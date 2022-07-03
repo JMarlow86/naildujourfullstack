@@ -3,21 +3,18 @@ package com.perscholas.naildujour.controllers;
 import com.perscholas.naildujour.models.Beverage;
 import com.perscholas.naildujour.models.Order;
 import com.perscholas.naildujour.models.Polish;
+import com.perscholas.naildujour.models.User;
 import com.perscholas.naildujour.services.BeverageService;
 import com.perscholas.naildujour.services.PolishService;
 import com.perscholas.naildujour.services.OrderService;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
+
+import com.perscholas.naildujour.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
-import java.util.HashSet;
-import java.util.Set;
+
 import java.util.List;
 
 
@@ -27,24 +24,47 @@ public class OrderController {
     OrderService orderService;
     PolishService polishService;
 
+    UserService userService;
+
     BeverageService beverageService;
 
     @Autowired
-    public OrderController(OrderService orderService, PolishService polishService, BeverageService beverageService) {
+    public OrderController(OrderService orderService, PolishService polishService, BeverageService beverageService, UserService userService) {
         this.orderService = orderService;
         this.polishService = polishService;
         this.beverageService = beverageService;
+        this.userService = userService;
+    }
+    @ModelAttribute("order")
+    public Order order(){
+        return new Order();
     }
 
     //returns order form view
     @GetMapping("/order")
-    public String makeOrder(Model model){
+    public String showOrder(Model model){
         List<Polish> polishes = polishService.findAll();
         List<Beverage> beverages = beverageService.findAll();
         model.addAttribute("polishes", polishes);
         model.addAttribute("beverages", beverages);
         return "order";
 }
+    @PostMapping("/makeorder")
+    public String makeOrder(@ModelAttribute("order")Order newOrder, Model model){
+        List<User> savedUsers = userService.findAll();
+        Boolean valid = false;
+        for (User user : savedUsers){
+            if(user.getEmail().equals(newOrder.getUserEmail())){
+                valid = true;
+            }
+        }
+        if (valid == false){
+            model.addAttribute("message","User does not exist, please register");
+            return "login";
+        }
+        orderService.saveOrUpdate(newOrder);
+        return "success";
+    }
 
 
 }

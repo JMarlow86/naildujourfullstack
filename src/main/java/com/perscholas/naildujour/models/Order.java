@@ -11,7 +11,6 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
-@Slf4j
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "NAIL_ORDER")
@@ -25,23 +24,23 @@ public class Order {
     @Id  @GeneratedValue(strategy = GenerationType.AUTO)
     int orderId;
 
-    @OneToOne
-    User user;
+    @Column
+    String userEmail;
 
-    @NonNull @ManyToOne
-    Beverage beverage;
+    @Column
+    String beverageName;
 
-    @NonNull @ManyToOne
-    Polish polish;
-
-
+    @Column
+    int polishId;
 
 
-    public Order (int orderId, User user, Beverage beverage, Polish polish){
+
+
+    public Order (int orderId, String userEmail, String beverageName, int polishId){
         this.orderId = orderId;
-        this.user = user;
-        this.beverage = beverage;
-        this.polish = polish;
+        this.userEmail = userEmail;
+        this.beverageName = beverageName;
+        this.polishId = polishId;
     }
 
     @Override
@@ -49,11 +48,11 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderId == order.orderId && user.equals(order.user) && beverage.equals(order.beverage) && polish.equals(order.polish);
+        return orderId == order.orderId && polishId == order.polishId && Objects.equals(userEmail, order.userEmail) && Objects.equals(beverageName, order.beverageName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, user, beverage, polish);
+        return Objects.hash(orderId, userEmail, beverageName, polishId);
     }
 }
