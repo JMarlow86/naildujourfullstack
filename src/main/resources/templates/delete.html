@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Delete Inventory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/inventory.css}">
+
+</head>
+<body>
+<h1>Delete</h1>
+<div class="container">
+    <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+</div>
+<div class="container">
+    <div class="row" id="">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <form action="#" th:action="@{/deletePolish}" th:object="${polish}"  method="post" class="ccform">
+                <select id="polishId" th:field="*{polishId}" name="polishId">
+                    <!--            iterates through polish list and makes them list options from database-->
+                    <option th:each="polish : ${polishes}" th:value="${polish.polishId}" th:text="${polish.polishId} + ' - ' + ${polish.polishName}"></option>
+                </select>
+                <div class="row">
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1">
+                        <button type="submit" id="submit">Submit.</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" id="bev">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <form action="#" th:action="@{/deleteBeverage}" th:object="${beverage}"  method="post" class="ccform">
+                <select id="beverageName" th:field="*{name}" name="beverageName">
+                    <option th:each="beverage : ${beverages}" th:value="${beverage.name}" th:text="${beverage.name}"></option>
+                </select>
+                <div class="row">
+                    <div class="col-sm-11"></div>
+                    <div class="col-sm-1">
+                        <button type="submit" class="submit">Submit.</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

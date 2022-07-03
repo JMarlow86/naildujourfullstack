@@ -43,6 +43,7 @@ public class OrderController {
     //returns order form view
     @GetMapping("/order")
     public String showOrder(Model model){
+        //Makes List of all polishes and beverages to auto populate drop down list
         List<Polish> polishes = polishService.findAll();
         List<Beverage> beverages = beverageService.findAll();
         model.addAttribute("polishes", polishes);
@@ -56,6 +57,7 @@ public class OrderController {
         for (User user : savedUsers){
             if(user.getEmail().equals(newOrder.getUserEmail())){
                 valid = true;
+                continue; //makes it faster by exiting the loop when condition is met
             }
         }
         if (valid == false){

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
-<head>
-    <title>About</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" th:href="@{/css/order.css}">
-    <link rel="stylesheet">
-</head>
-<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
-<div class="row">
-<h1>OOPS</h1>
-    <h3 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h3>
-    <a href="index.html" th:href="@{/index}">Back to Home Page</a>
-</div>
-</body>
+    <head>
+        <title>Error</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" th:href="@{/css/order.css}">
+    </head>
+
+        <body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+            <div class="row">
+                <h1>OOPS</h1>
+                <h3 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h3>
+                <a href="index.html" th:href="@{/index}">Back to Home Page</a>
+            </div>
+        </body>
+</html>

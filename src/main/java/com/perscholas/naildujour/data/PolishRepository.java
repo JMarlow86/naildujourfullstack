@@ -14,7 +14,7 @@ public interface PolishRepository extends JpaRepository<Polish, Integer> {
 
     List<Polish> findAll();
 
-    List<Polish> findPolishByPolishId(int id);
+    Polish findPolishByPolishId(int id);
 
-    void deletePolishByPolishName(String polishName);
+    void deletePolishByPolishId(int polishId);
 }
