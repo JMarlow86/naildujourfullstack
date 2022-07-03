@@ -2,6 +2,7 @@ package com.perscholas.naildujour.services;
 
 
 import com.perscholas.naildujour.data.OrderRepository;
+import com.perscholas.naildujour.models.Beverage;
 import com.perscholas.naildujour.models.Order;
 
 
@@ -35,13 +36,19 @@ public class OrderService {
     }
 
     @Transactional
-    public void deleteOrderByOrderId(int orderId){
+    public void deleteOrderByOrderId(int orderId) {
         orderRepository.deleteOrderByOrderId(orderId);
     }
+
     public List<Order> findAll() {
         return orderRepository.findAll();
     }
 
+
+    public void saveOrUpdate(Order o) {
+        orderRepository.save(o);
+
+    }
+
+
 }
-
-
