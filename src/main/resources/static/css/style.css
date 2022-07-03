@@ -16,23 +16,13 @@ body {
 
 }
 
-.b,.c {
-
-  margin-right: -50px;
-
+.b {
+    margin-left: 100px;
 }
 
-.d {
 
-  margin-left: -25px;
 
-}
 
-.e {
-
-  margin-left: -100px;
-
-}
 
 /* NAVIGATION  */
   a {

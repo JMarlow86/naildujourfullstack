@@ -22,37 +22,50 @@
         </div>
       </div>
       <div class="wrapper">
-        <form method="post" action="" class="ccform">
+        <form action="#" th:action="@{/addpolish}" th:object="${polish}" method="post" class="ccform">
           <div class="ccfield-prepend">
             <span class="ccform-addon" style="margin-top: 200px;"><i class="fa fa-plus fa-2x"></i></span>
-            <input class="ccformfield" type="text" placeholder="Add Polish Name" required>
+            <input class="ccformfield" type="text" th:field="*{polishName}" placeholder="Add Polish Name" required>
           </div>
           <div class="ccfield-prepend">
             <span class="ccform-addon"><i class="fa fa-plus fa-2x"></i></span>
-            <input class="ccformfield" type="text" placeholder="Add Polish Id" required>
+            <input class="ccformfield" type="text" th:field="*{polishId}" placeholder="Add Polish Id" required>
           </div>
-          <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-plus fa-2x"></i></span>
-            <input class="ccformfield" type="text" placeholder="Add Beverage Name" required>
-          </div>
-          <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-plus fa-2x"></i></span>
-            <input class="ccformfield" type="text" placeholder="Add Beverage Type " required>
-          </div>
-          <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-key fa-2x"></i></span>
-            <input class="ccformfield" type="password" name="password" id="password" placeholder="Password" req>
+<!--          message handler-->
+          <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 s">
+                <div class="wrapper">
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+              <br>
+              <br>
+            </div>
           </div>
         </form>
       </div>
     </div>           
     <br>
     <br>
+
     <div class="container">
       <div class="row">
         <div class="col-md-6 s">
           <div class="wrapper">
-            <a th:href="@{/success}">Add Inventory</a>
+            <a th:href="@{/polishinventory}">Add Polish</a>
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 s">
+          <div class="wrapper">
+            <a th:href="@{/beverageinventory}">Add Beverage</a>
           </div>
         </div>
         <br>

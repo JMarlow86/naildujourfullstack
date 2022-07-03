@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Inventory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/inventory.css}">
+    <link rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div class="row" style="border-radius: 100px; border: 3px solid #0AA8D4; color:black; font-size: 60pt; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding-left: 40px; padding-top:50px; background-color: #EAED2B ;">
+        <div class="col-md-12">Inventory Management.</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 s" style="padding-top: 50px; margin-bottom: -150px;">
+            <div class="wrapper">
+                <a th:href="@{/index}">Return Home</a>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <form action="#" th:action="@{/addbeverage}" th:object="${beverage}" method="post" class="ccform">
+            <div class="ccfield-prepend">
+                <span class="ccform-addon" style="margin-top: 200px;"><i class="fa fa-plus fa-2x"></i></span>
+                <input class="ccformfield" type="text" th:field="*{name}" placeholder="Add Beverage Name" required>
+            </div>
+            <div class="col-md-6 mb-4">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" th:field="*{type}" name="inlineRadioOptions" id="alcoholic" value="alcoholic" checked />
+                    <label class="form-check-label" for="alcoholic">Alcoholic</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" th:field="*{type}" name="inlineRadioOptions" id="nonalcoholic" value="na" />
+                        <label class="form-check-label" for="nonalcoholic">Non-Alcoholic</label>
+                    </div>
+                </div>
+            </div>
+<!--            message handler-->
+            <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 s">
+            <div class="wrapper">
+                <a th:href="@{/success}">Add Inventory</a>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+</body>
+</html>
