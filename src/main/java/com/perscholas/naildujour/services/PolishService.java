@@ -33,13 +33,13 @@ public class PolishService {
         return polishRepository.findPolishByPolishName(polishName);
     }
 
-    public List<Polish> findPolishById(int polishId){
+    public Polish findPolishByPolishId(int polishId){
         return polishRepository.findPolishByPolishId(polishId);
 
     }
     @Transactional
-    public void deletePolishByName(String polishName){
-        polishRepository.deletePolishByPolishName(polishName);
+    public void deletePolishByPolishId(int polishId){
+        polishRepository.deletePolishByPolishId(polishId);
     }
     public void saveOrUpdate(Polish p) {
         polishRepository.save(p);

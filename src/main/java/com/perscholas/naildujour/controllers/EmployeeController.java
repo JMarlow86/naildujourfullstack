@@ -25,6 +25,8 @@ public class EmployeeController {
     PolishService polishService;
     BeverageService beverageService;
 
+
+
     @Autowired
     public EmployeeController(PolishService polishService, BeverageService beverageService){
         this.beverageService = beverageService;
@@ -38,6 +40,40 @@ public class EmployeeController {
     @ModelAttribute("beverage")
     public Beverage beverage(){
         return  new Beverage();
+    }
+    @GetMapping("/delete")
+    public String deleteInventory(Model model){
+        List<Polish> polishes = polishService.findAll();
+        List<Beverage> beverages = beverageService.findAll();
+        model.addAttribute("polishes", polishes);
+        model.addAttribute("beverages", beverages);
+        return "delete";
+    }
+
+    @PostMapping("/deletePolish")
+    public String deletePolish(@ModelAttribute("polish")Polish byePolish, Model model){
+        List<Polish> polishes = polishService.findAll();
+        List<Beverage> beverages = beverageService.findAll();
+        Polish namePolish = polishService.findPolishByPolishId(byePolish.getPolishId());
+        model.addAttribute("polishes", polishes);
+        model.addAttribute("beverages", beverages);
+        polishService.deletePolishByPolishId(byePolish.getPolishId());
+        model.addAttribute("message","You have successfully deleted " + namePolish.getPolishName());
+
+        return "delete";
+    }
+    @PostMapping("/deleteBeverage")
+    public String deleteBeverage(@ModelAttribute("beverage")Beverage byeBeverage, Model model){
+        List<Beverage> beverages = beverageService.findAll();
+        List<Polish> polishes = polishService.findAll();
+        Beverage nameBeverage = beverageService.findBeverageByName(byeBeverage.getName());
+        model.addAttribute("beverages", beverages);
+        model.addAttribute("polishes",polishes);
+        beverageService.deleteBeverageByName(byeBeverage.getName());
+        model.addAttribute("message", "You have successfully deleted " + nameBeverage.getName());
+
+        return "delete";
+
     }
 
     @GetMapping("/polishinventory")
