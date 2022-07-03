@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
-    <link rel="stylesheet" th:href="@{/order.css}">
+    <link rel="stylesheet" th:href="@{/css/order.css}">
     <link rel="stylesheet">
     <script src="order.js"></script>
 
@@ -60,43 +60,69 @@
       <div class="row" id="email">
         <div class="col-sm-3"></div>
         <div class="col-sm-3">
-          <form method="post" action="" class="ccform">
+          <form action="#" th:action="@{/makeorder}" th:object="${order}"  method="post" class="ccform">
             <div class="ccfield-prepend">
-              <input class="ccformfield" style="font-size: 16pt; text-align: left; background-color:#A0F6FE; border-color: #EAED2B; border-radius: 4px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: black;" type="text" placeholder="Enter Email" required>
+              <input class="ccformfield" style="font-size: 16pt; text-align: left; background-color:#A0F6FE; border-color: #EAED2B; border-radius: 4px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: black;" type="text" th:field="*{userEmail}" placeholder="Enter Email" required>
             </div>
-          </form>
-        </div>
-        <div class="col-sm-3">
-          <select id="test">
-                    <option value="1">Ruby on Rails</option>
-                    <option value="2">Oracle Orange</option>
-                    <option value="3">Yaml Yellow</option>
-                    <option value="4">Google Green</option>
-                    <option value="5">Python Purple</option>
-                    <option value="6">OOP-ink</option>
-                    <option value="7">Intelli-grey</option>
-                    <option value="8">Maven Mauve</option>
-          </select>
-        </div>  
-        <div class="col-sm-3">
-          <select id="test2">
-                    <option value="1">Red Wine</option>
-                    <option value="2">White Wine</option>
-                    <option value="3">Prosecco</option>
-                    <option value="4">Pale Ale</option>
-                    <option value="5">Sparkling Water</option>
-                    <option value="6">Still Water</option>
-                    <option value="7">Fresh Juice</option>
-                    <option value="8">Coke</option>
-          </select>
-        </div>
-      </div> 
-      <div class="row">
-        <div class="col-sm-11"></div>
-        <div class="col-sm-1">
-          <button type="submit" id="submit">Submit.</button>
-        </div>
-      </div>   
-    </div> 
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <h6 class="mb-2 pb-1">Select Polishes: </h6>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
+                  <label class="form-check-label" for="femaleGender">She/Her</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
+                    <label class="form-check-label" for="maleGender">He/Him</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" value="option3" />
+                    <label class="form-check-label" for="otherGender">They/Them</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <h6 class="mb-2 pb-1">Select Polishes: </h6>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
+                  <label class="form-check-label" for="femaleGender">She/Her</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
+                    <label class="form-check-label" for="maleGender">He/Him</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" value="option3" />
+                    <label class="form-check-label" for="otherGender">They/Them</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+<!--        <div class="col-sm-3">-->
+<!--&lt;!&ndash;          #test&ndash;&gt;-->
+<!--          <select id="polishId" th:field="*{polishId}" name="polishId">-->
+<!--&lt;!&ndash;            iterates through polish list and makes them list options from database&ndash;&gt;-->
+<!--            <option th:each="polish : ${polishes}" th:value="${polish.polishId}" th:text="${polish.polishName}"></option>-->
+
+
+<!--          </select>-->
+<!--        </div>-->
+<!--        <div class="col-sm-3">-->
+<!--&lt;!&ndash;          test2&ndash;&gt;-->
+<!--          <select id="beverageName" th:field="*{beverageName}" name="beverageName">-->
+<!--            <option th:each="beverage : ${beverages}" th:value="${beverage.name}" th:text="${beverage.name}"></option>-->
+
+<!--          </select>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-11"></div>-->
+<!--        <div class="col-sm-1">-->
+<!--          <button type="submit" id="submit">Submit.</button>-->
+<!--        </div>-->
+<!--      </div>-->
+      </form>
+    </div>
+    </div>
   </body>
 </html>

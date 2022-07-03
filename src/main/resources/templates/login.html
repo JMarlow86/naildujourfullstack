@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{login.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet">
   </head>
 
@@ -21,22 +21,25 @@
         </div>
       </div> 
     </div>
-    <form method="post" action="" class="ccform">
+<!--    action directly relates to Controller Post Mapping-->
+    <!--              message handler-->
+    <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post" class="ccform">
       <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
-        <input class="ccformfield" type="text" placeholder="Full Name" required>
+        <input class="ccformfield" type="text" th:field="*{name}" placeholder="Full Name" required>
       </div>
       <div class="col-md-6 mb-4">
         <h6 class="mb-2 pb-1">Pronouns: </h6>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
+          <input class="form-check-input" type="radio" th:field="*{pronoun}" name="inlineRadioOptions" id="femaleGender" value="she/her" checked />
           <label class="form-check-label" for="femaleGender">She/Her</label>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
+            <input class="form-check-input" type="radio" th:field="*{pronoun}" name="inlineRadioOptions" id="maleGender" value="he/him" />
             <label class="form-check-label" for="maleGender">He/Him</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" value="option3" />
+            <input class="form-check-input" type="radio" th:field="*{pronoun}" name="inlineRadioOptions" id="otherGender" value="they/them" />
             <label class="form-check-label" for="otherGender">They/Them</label>
           </div>
         </div>
@@ -45,17 +48,18 @@
       <br>
       <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-envelope fa-2x"></i></span>
-        <input class="ccformfield" type="text" placeholder="Email" required>
+        <input class="ccformfield" type="text" th:field="*{email}" placeholder="Email" required>
       </div>
       <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-mobile-phone fa-2x"></i></span>
-        <input class="ccformfield" type="text" placeholder="Phone" req>
+        <input class="ccformfield" type="text" th:field="*{phone}" placeholder="Phone" req>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 s">
             <div class="wrapper">
-              <a href="@{/order}">Submit</a>
+              <button type="submit">Submit</button>
+
             </div>
           </div>
         </div>
