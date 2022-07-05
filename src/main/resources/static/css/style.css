@@ -9,19 +9,14 @@ body {
 }
 
 /* BUTTON SPACING */
-.wrapper {
-  
-    position: fixed;
-    transform: translate(-50%, -50%);
 
-}
-
-.b {
-    margin-left: 100px;
-}
+  .flex-container{
+  display: flex;
+  justify-content: space-around;
+  align-content: space-evenly;
 
 
-
+  }
 
 
 /* NAVIGATION  */
@@ -56,6 +51,7 @@ body {
   
   /* HEADING */
   #nail {
+
     color: black;
     text-shadow: 6px 1px #A0F6FE;
     font-size: 200pt;
@@ -63,6 +59,7 @@ body {
   }
   
   #dujour {
+
     text-align: center;
     box-shadow: 2px 1px black;
     border-radius: 25px;
@@ -73,6 +70,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+
 
 
 

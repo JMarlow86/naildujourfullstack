@@ -7,14 +7,11 @@ import com.perscholas.naildujour.models.User;
 import com.perscholas.naildujour.services.BeverageService;
 import com.perscholas.naildujour.services.PolishService;
 import com.perscholas.naildujour.services.OrderService;
-
-
 import com.perscholas.naildujour.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -37,34 +34,43 @@ public class OrderController {
     }
     @ModelAttribute("order")
     public Order order(){
+
         return new Order();
     }
 
     //returns order form view
     @GetMapping("/order")
     public String showOrder(Model model){
-        //Makes List of all polishes and beverages to auto populate drop down list
+    //Makes List of all polishes and beverages to auto-populate drop down list
         List<Polish> polishes = polishService.findAll();
         List<Beverage> beverages = beverageService.findAll();
-        model.addAttribute("polishes", polishes);
-        model.addAttribute("beverages", beverages);
+            model.addAttribute("polishes", polishes);
+            model.addAttribute("beverages", beverages);
+
         return "order";
-}
+    }
+
+    //POSTMAPPING LOGIC IS NOT WORKING TO PROMPT USER TO REGISTER IF NOT RECOGNIZED IN DATABASE. CREATES ORDER NOMATTER WHAT
     @PostMapping("/makeorder")
     public String makeOrder(@ModelAttribute("order")Order newOrder, Model model){
         List<User> savedUsers = userService.findAll();
-        Boolean valid = false;
-        for (User user : savedUsers){
-            if(user.getEmail().equals(newOrder.getUserEmail())){
-                valid = true;
-                continue; //makes it faster by exiting the loop when condition is met
+        Boolean isInSystem = false;
+            for (User user : savedUsers){
+                if(user.getEmail().equals(newOrder.getUserEmail())){
+                    isInSystem = true;
+
+                    continue; //makes it faster by exiting the loop when condition is met
             }
         }
-        if (valid == false){
+        if (isInSystem = false){
             model.addAttribute("message","User does not exist, please register");
-            return "login";
+
+            return "order";
         }
         orderService.saveOrUpdate(newOrder);
+        List <User> currectUser = userService.findAll();
+            model.addAttribute("currentUser", currectUser);
+
         return "success";
     }
 

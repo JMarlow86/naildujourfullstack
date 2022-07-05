@@ -5,9 +5,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
+
 
 @NoArgsConstructor
 @Getter
@@ -34,10 +33,6 @@ public class Beverage {
         this.name = name;
         this.type = type;
     }
-
-
-
-
 
     @Override
     public boolean equals(Object o) {

@@ -12,8 +12,8 @@
   <body>
     <div class="container-fluid" id="container">
       <div class="row" id="title">
-        <div class="col-sm-2 b">
-          <a th:href="@{/index}"><--</a>
+        <div class="col-sm-2 home">
+          <a th:href="@{/index}">Home.</a>
         </div>
         <div class="col-md-10" id="company"> 
           <span id="nail">Nail</span>
@@ -21,9 +21,9 @@
         </div>
       </div> 
     </div>
-<!--    action directly relates to Controller Post Mapping-->
-    <!--              message handler-->
-    <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+                    <!--action directly relates to Controller Post Mapping-->
+                    <!-- message handler-->
+    <div class="flex-container"><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
     <form action="#" th:action="@{/adduser}" th:object="${user}" method="post" class="ccform">
       <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
@@ -59,7 +59,6 @@
           <div class="col-sm-12 s">
             <div class="wrapper">
               <button type="submit">Submit</button>
-
             </div>
           </div>
         </div>

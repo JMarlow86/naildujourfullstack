@@ -110,12 +110,51 @@ body {
   /* SUBMIT */
   .s {
 
-    margin-left: 350px;
-  
+    align
+
   }
 
-  /* BACK */
-.b {
+  button {
+        text-align: center;
+        margin-bottom: 100px;
+        font-size: 14px;
+        background-color: #FF66C4;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-decoration: none;
+        color: black;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        border-left: 2px solid #FF66C4;
+        border-right: 2px solid #FF66C4;
+        padding-left: 20px;
+        padding-right: 20px;
+        letter-spacing: 2px;
+        transition: all .25s;
+        cursor: pointer;
+
+      }
+       button:hover {
+        letter-spacing: 5px;
+          color: black;
+          border-top: 2px solid #EAED2B;
+          border-bottom: 2px solid #EAED2B;
+          border-right: 2px solid #EAED2B;
+          border-left: 2px solid #EAED2B;
+          border-radius: 10px;
+          background-image: linear-gradient(45deg, #A0F6FE 0%, #FF66C4  51%, #A0F6FE 100%);
+          font-weight: 700;
+
+       }
+     .flex-container {
+          font-size: 24pt;
+          display: flex;
+          justify-content: center;
+
+     }
+
+
+  /* NAVIGATE HOME */
+.home {
 
   margin-left: 25px;
 

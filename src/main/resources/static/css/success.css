@@ -1,0 +1,29 @@
+body {
+
+  background-image: url('../images/successpage.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+/*HEADING*/
+
+#login {
+    color: black;
+    text-shadow: 6px 1px #A0F6FE;
+    font-size: 200pt;
+    font-family: didot;
+  }
+
+  #success {
+    text-align: center;
+    box-shadow: 2px 1px black;
+    border-radius: 25px;
+    text-shadow: 6px 1px black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 100px;
+    background: -webkit-linear-gradient(#FF66C4, #EAED2B,#FF66C4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

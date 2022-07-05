@@ -43,11 +43,8 @@ a{
    }
 
    #submit {
-
-    margin-top: 130px;
-    margin-left: 85px;
-    display: block;
-    font-size: 24px;
+    margin-left: 30px;
+    font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
     color: black;
@@ -55,13 +52,15 @@ a{
     border-bottom: 2px solid black;
     border-left: #A0F6FE;
     border-right: #A0F6FE;
-    background-color: #A0F6FE;
-    padding: 10px;
+    background-color: #FF66C4;
     letter-spacing: 2px;
     transition: all .25s;
     cursor: pointer;
     
   }
+
+
+
 
   /* HEADING */
   #nail {
@@ -81,7 +80,7 @@ a{
     text-shadow: 6px 1px black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 100px;
-    background: -webkit-linear-gradient(#FF66C4, #EAED2B,#FF66C4);
+    background: -webkit-linear-gradient(#A0F6FE, #A0F6FE, #EAED2B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -94,109 +93,35 @@ a{
     
   }
 
-/* EMAIL FIELD POSITIONING (styling = in-line)*/
-  #email {
+  /*FORM*/
 
-     margin-left: 150px;
-     margin-top: -30px;
+    .flex-container form {
+        margin-left: 350px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
 
-  }
-  
-  /* SELECTION DROPDOWNS */
-.MultiCheckBox {
 
-    font-size: 20pt;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #A0F6FE;
-    border:1px solid #EAED2B;
-    padding: 5px;
-    border-radius:4px;
-    cursor:pointer;
+        }
 
-}
+    .ccformfield, #polishId, #beverageName{
+        margin-left: 30px;
+        font-size: 15pt;
+        text-align: left;
+        background-color: #EAED2B;
+        border: 3px solid #A0F6FE ;
+        border-radius: 4px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: black;
+        }
 
-.MultiCheckBox .k-icon { 
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
-    float: right;
-    font-weight: bolder;
-    margin-top: -7px;
-    height: 10px;
-    width: 24px;
-    color:#FF66C4;
 
-} 
 
-.MultiCheckBoxDetail {
 
-    font-size: 10pt;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display:none;
-    position:absolute;
-    border:1px solid #A0F6FE;
-    border-radius: 4px;
-    background-color: #FF66C4;
-    overflow-y:hidden;
-    padding-bottom: 20px;
-  
-}
 
-.MultiCheckBoxDetailBody {
-
-    overflow-y:scroll;
-
-}
-
-    .MultiCheckBoxDetail .cont {
-
-        clear:both;
-        overflow: hidden;
-        padding: 2px;
-
-    }
-
-    .MultiCheckBoxDetail .cont:hover {
-
-        background-color:#EAED2B
-
-    }
-
-    .MultiCheckBoxDetailBody > div > div {
-
-        float:left;
-
-    }
-
-.MultiCheckBoxDetail>div>div:nth-child(1) {
-
-}
-
-.MultiCheckBoxDetailHeader {
-
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    overflow:hidden;
-    position:relative;
-    height: 28px;
-    background-color:#FF66C4;
-
-}
-
-    .MultiCheckBoxDetailHeader>input {
-
-        position: absolute;
-        top: 4px;
-        left: 3px;
-
-    }
-
-    .MultiCheckBoxDetailHeader>div {
-        
-        position: absolute;
-        top: 5px;
-        left: 24px;
-       
-    }
 
     
 
