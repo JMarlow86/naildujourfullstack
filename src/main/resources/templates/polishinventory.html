@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
   <head>
-    <title>Inventory</title>
+    <title>Polish Inventory</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/inventory.css}">
   </head>
 
+  <style>
+  .container {
+    border-radius: 100px;
+    border: 3px solid #0AA8D4;
+    color:black; font-size: 60pt;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 40px;
+    padding-top:50px;
+    background-color: #EAED2B ;
+
+  }
+  .flex-container {
+    margin-left: 85px;
+    margin-top: -30px;
+    }
+  </style>
+
   <body>
     <div class="container">
-      <div class="row" style="border-radius: 100px; border: 3px solid #0AA8D4; color:black; font-size: 60pt; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding-left: 40px; padding-top:50px; background-color: #EAED2B ;">
+      <div class="row">
         <div class="col-md-12">Polish Management.</div>
       </div>
-      <div class="row">
-        <div class="col-md-6 s" style="padding-top: 50px; margin-bottom: -150px;">
+    </div>
+      <br>
+      <br>
+      <br>
+      <div class="flex-container" id="bevnav">
           <div class="wrapper">
-            <a th:href="@{/index}">Return Home</a>
+            <a th:href="@{/index}">Return Home.</a>
+            <a th:href="@{/delete}">Delete Inventory.</a>
+            <a th:href="@{/beverageinventory}">Add Beverage.</a>
           </div>
         </div>
       </div>
       <div class="wrapper">
+        <br>
+        <br>
+        <!--          message handler-->
+        <div class="message"><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+
         <form action="#" th:action="@{/addpolish}" th:object="${polish}" method="post" class="ccform">
           <div class="ccfield-prepend">
             <span class="ccform-addon" style="margin-top: 200px;"><i class="fa fa-plus fa-2x"></i></span>
@@ -30,13 +57,12 @@
             <span class="ccform-addon"><i class="fa fa-plus fa-2x"></i></span>
             <input class="ccformfield" type="text" th:field="*{polishId}" placeholder="Add Polish Id" required>
           </div>
-<!--          message handler-->
-          <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
-          <div class="container">
+          <br>
+          <div class="container2">
             <div class="row">
-              <div class="col-md-6 s">
+              <div class="col-md-12 submit">
                 <div class="wrapper">
-                  <button type="submit">Submit</button>
+                  <button type="submit">Save Polish</button>
                 </div>
               </div>
               <br>
@@ -45,31 +71,9 @@
           </div>
         </form>
       </div>
-    </div>           
     <br>
     <br>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 s">
-          <div class="wrapper">
-            <a th:href="@{/delete}">Delete Inventory</a>
-          </div>
-        </div>
-        <br>
-        <br>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 s">
-          <div class="wrapper">
-            <a th:href="@{/beverageinventory}">Add Beverage</a>
-          </div>
-        </div>
-        <br>
-        <br>
-      </div>
-    </div>
+    <br>
+    <br>
   </body>
 </html>

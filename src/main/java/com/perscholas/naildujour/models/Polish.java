@@ -3,15 +3,12 @@ package com.perscholas.naildujour.models;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-
 import javax.persistence.*;
-
 import java.util.Objects;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
-//@RequiredArgsConstructor
 @Getter
 @Setter
 @Slf4j
@@ -43,5 +40,11 @@ public class Polish {
     public int hashCode() {
         return Objects.hash(polishId, polishName);
     }
+
+
+    public int findPolishByPolishId() {
+        return polishId;
+    }
 }
+
 

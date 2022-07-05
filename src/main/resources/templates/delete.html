@@ -8,47 +8,80 @@
     <link rel="stylesheet" th:href="@{/css/inventory.css}">
 
 </head>
-<body>
-<h1>Delete</h1>
-<div class="container">
-    <div><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
-</div>
-<div class="container">
-    <div class="row" id="">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-            <form action="#" th:action="@{/deletePolish}" th:object="${polish}"  method="post" class="ccform">
-                <select id="polishId" th:field="*{polishId}" name="polishId">
-                    <!--            iterates through polish list and makes them list options from database-->
-                    <option th:each="polish : ${polishes}" th:value="${polish.polishId}" th:text="${polish.polishId} + ' - ' + ${polish.polishName}"></option>
-                </select>
-                <div class="row">
-                    <div class="col-sm-11"></div>
-                    <div class="col-sm-1">
-                        <button type="submit" id="submit">Submit.</button>
-                    </div>
-                </div>
-            </form>
+<style>
+
+      .container2 #polishId, #beverageName {
+        margin-left: 30px;
+        font-size: 15pt;
+        text-align: left;
+        background-color: #EAED2B;
+        border: 3px solid #A0F6FE ;
+        border-radius: 4px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: black;
+        }
+
+        .container {
+
+        border-radius: 100px;
+        border: 3px solid #0AA8D4;
+        color:black; font-size: 60pt;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding-left: 40px;
+        padding-top:50px;
+        background-color: #EAED2B ;
+
+        }
+
+        .container-fluid {
+            margin-bottom: 100px;
+            margin-left: 200px;
+            margin-top: 30px;
+        }
+</style>
+    <body>
+        <div class="container">
+            <div class="row" style="">
+                <div class="col-md-12">Delete Inventory.</div>
+            </div>
         </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row" id="bev">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-            <form action="#" th:action="@{/deleteBeverage}" th:object="${beverage}"  method="post" class="ccform">
-                <select id="beverageName" th:field="*{name}" name="beverageName">
-                    <option th:each="beverage : ${beverages}" th:value="${beverage.name}" th:text="${beverage.name}"></option>
-                </select>
-                <div class="row">
-                    <div class="col-sm-11"></div>
-                    <div class="col-sm-1">
-                        <button type="submit" class="submit">Submit.</button>
-                    </div>
-                </div>
-            </form>
+        <div class="container-fluid" id="bevnav">
+            <div class="wrapper">
+                <a th:href="@{/index}">Return Home.</a>
+                <a th:href="@{/polishinventory}">Add Polish.</a>
+                <a th:href="@{/beverageinventory}">Add Beverage.</a>
+            </div>
         </div>
-    </div>
-</div>
-</body>
+        <br>
+        <br>
+                        <!--          message handler-->
+        <div class="message"><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
+        <div class="container2">
+            <div class="row" id="polish">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                        <form action="#" th:action="@{/deletePolish}" th:object="${polish}"  method="post" class="ccform">
+                        <select id="polishId" th:field="*{polishId}" name="polishId">
+                                            <!--            iterates through polish list and makes them list options from database-->
+                            <option th:each="polish : ${polishes}" th:value="${polish.polishId}" th:text="${polish.polishId} + ' - ' + ${polish.polishName}"></option>
+                        </select>
+                        <button type="submit" id="submit">Delete Polish.</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="row" id="bev">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <form action="#" th:action="@{/deleteBeverage}" th:object="${beverage}"  method="post" class="ccform">
+                        <select id="beverageName" th:field="*{name}" name="beverageName">
+                            <option th:each="beverage : ${beverages}" th:value="${beverage.name}" th:text="${beverage.name}"></option>
+                        </select>
+                        <button type="submit" class="submit">Delete Beverage.</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

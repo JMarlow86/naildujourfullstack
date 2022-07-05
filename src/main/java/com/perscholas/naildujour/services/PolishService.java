@@ -37,10 +37,12 @@ public class PolishService {
         return polishRepository.findPolishByPolishId(polishId);
 
     }
+
     @Transactional
     public void deletePolishByPolishId(int polishId){
         polishRepository.deletePolishByPolishId(polishId);
     }
+
     public void saveOrUpdate(Polish p) {
         polishRepository.save(p);
     }

@@ -2,10 +2,7 @@ package com.perscholas.naildujour.services;
 
 
 import com.perscholas.naildujour.data.OrderRepository;
-import com.perscholas.naildujour.models.Beverage;
 import com.perscholas.naildujour.models.Order;
-
-
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +10,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-
 import javax.transaction.Transactional;
 
 
@@ -28,7 +24,6 @@ public class OrderService {
     @Autowired
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
-
     }
 
     public Order findOrderByOrderId(int orderId) {
@@ -49,6 +44,8 @@ public class OrderService {
         orderRepository.save(o);
 
     }
+
+
 
 
 }

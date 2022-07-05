@@ -42,34 +42,33 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row" id="email">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-          <form action="#" th:action="@{/makeorder}" th:object="${order}"  method="post" class="ccform">
-            <div class="ccfield-prepend">
-              <input class="ccformfield" style="font-size: 16pt; text-align: left; background-color:#A0F6FE; border-color: #EAED2B; border-radius: 4px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: black;" type="text" th:field="*{userEmail}" placeholder="Enter Email" required>
-            </div>
+    <div class="flex-container">
+      <form action="#" th:action="@{/makeorder}" th:object="${order}"  method="post" class="ccform">
+        <div class="ccfield-prepend">
+            <input class="ccformfield" type="text" th:field="*{userEmail}" placeholder="Enter Email" required>
+        </div>
+        <div class="select">
             <select id="polishId" th:field="*{polishId}" name="polishId">
-  <!--            iterates through polish list and makes them list options from database-->
+              <!--iterates through polish list and makes them list options from database-->
               <option th:each="polish : ${polishes}" th:value="${polish.polishId}" th:text="${polish.polishName}"></option>
             </select>
             <select id="beverageName" th:field="*{beverageName}" name="beverageName">
               <option th:each="beverage : ${beverages}" th:value="${beverage.name}" th:text="${beverage.name}"></option>
             </select>
-            <div class="row">
-                <div class="col-sm-11"></div>
-                <div class="col-sm-1">
-                    <button type="submit" id="submit">Submit.</button>
-                </div>
-            </div>
-          </form>
         </div>
+        <button type="submit" id="submit">Submit.</button>
+      </form>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-2"></div>
       </div>
     </div>
   </body>
   <script src="order.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
 </html>

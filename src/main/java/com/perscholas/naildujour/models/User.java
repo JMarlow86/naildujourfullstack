@@ -23,7 +23,9 @@ import java.util.HashSet;
 @Entity
 public class User {
 
-    @Id @NonNull  @Column
+    @Id
+    @NonNull
+    @Column
     String email;
 
      @Column
