@@ -1,26 +1,14 @@
 package com.perscholas.naildujour.controllers;
 
-import com.perscholas.naildujour.models.User;
-import com.perscholas.naildujour.services.UserService;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.List;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-//@ControllerAdvice
-//@Controller
-
+@ControllerAdvice
 public class ErrorController {
 
     private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
@@ -28,11 +16,12 @@ public class ErrorController {
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String exception(final Throwable throwable, Model model) {
-        //custom error handler
+        //custom error page handler
+        //Shorthand for if true then do this, else do this
         logger.error("Exception during execution of SpringSecurity application", throwable);
-        //shorthand conditional | if this is true | then do this | else do this
-        String errorMessage = (throwable !=null ? throwable.getMessage() : "Unknown error");
+        String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown error");
         model.addAttribute("errorMessage", errorMessage);
         return "error";
     }
+
 }

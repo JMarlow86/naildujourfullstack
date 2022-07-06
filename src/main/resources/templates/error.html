@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Oops!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/successs.css}">
+</head>
+
+
+
+
+<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+
+<div class="row">
+    <div class="col-6 mx-auto d-flex flex-column text-center align-items-center">
+        <h1>Please Give Me A Good Grade!!! </h1>
+        <h3 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h3>
+        <iframe src="https://giphy.com/embed/bqXMrwkWhAbrV0Z0dG" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>
+        <a href="https://giphy.com/gifs/high-quality-highqualitygifs-bqXMrwkWhAbrV0Z0dG">via GIPHY</a></p>
+        <a href="index.html" th:href="@{/index}">Back to Home Page</a>
+    </div>
+</div>
+
+
+</body>
