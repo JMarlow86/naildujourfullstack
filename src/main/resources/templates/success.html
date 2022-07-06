@@ -11,15 +11,19 @@
 </head>
 
  <body>
-    <div class="container-fluid">
-        <div class="row" id="title">
-            <div class="col-md-12">
-                <span id="login">Login</span>
-                <span id="success">success!!</span>
-            </div>
-            <span th:text="'Thank You ' + ${currentUser.name} +', order #'+ ${currentOrder.orderId} + ' has been placed.'"></span>
-            <span th:text="'Your ' + ${currentOrder.beverageName} + ' will be served to you soon!'"></span>
-        </div>
+    <div class="container">
+            <span id="login">Check-in.</span>
+            <span id="success">Successful!!</span>
+    </div>
+    <br>
+    <br>
+    <div class="container2">
+            <span  th:text="'Thank You ' + ${currentUser.name} +', order #'+ ${currentOrder.orderId} + ' has been placed.'"></span>
+            <span th:text="' Your ' + ${currentOrder.beverageName} + ' will be served to you soon!'"></span>
+    </div>
+    <div class="gif">
+    <iframe src="https://giphy.com/embed/26DOoDwdNGKAg6UKI" width="480" height="384" frameBorder="2" class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/alexanderirl-alexander-irl-26DOoDwdNGKAg6UKI"></a></p>
     </div>
  </body>
 </html>
