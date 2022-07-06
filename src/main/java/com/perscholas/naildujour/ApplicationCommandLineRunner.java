@@ -59,12 +59,18 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
         beverageService.saveOrUpdate(new Beverage( "Sparkling Water", "na"));
         beverageService.saveOrUpdate(new Beverage( "Still Water", "na"));
         beverageService.saveOrUpdate(new Beverage( "Fresh Juice", "na"));
-        beverageService.saveOrUpdate(new Beverage( "Coke", "na"));
+        beverageService.saveOrUpdate(new Beverage( "Soda", "na"));
 
 
-        userService.saveOrUpdate(new User("Jamie@gmail.com", "jamie", "2123338888","boss","she/her"));
-        userService.saveOrUpdate(new User("Mira@gmail.com", "Mira", "21237896888","service provider","she/her"));
-        userService.saveOrUpdate(new User("Goliath@gmail.com", "Goliath", "2003338888","customer","he/him"));
+        userService.saveOrUpdate(new User("Jamie@gmail.com", "Jamie", "212-333-8888","boss","she/her"));
+        userService.saveOrUpdate(new User("Mira@gmail.com", "Mira", "212-3789-6888","service provider","she/her"));
+        userService.saveOrUpdate(new User("Goliath@gmail.com", "Goliath", "200-333-8888","customer","he/him"));
+        userService.saveOrUpdate(new User("Fern@gmail.com", "Fern", "200-333-8888","customer","he/him"));
+        userService.saveOrUpdate(new User("Maple@gmail.com", "Maple", "200-333-8888","customer","she/her"));
+        userService.saveOrUpdate(new User("Jafer@gmail.com", "Jafer", "200-3338-888","customer","he/him"));
+        userService.saveOrUpdate(new User("Emily@gmail.com", "Emily", "200-333-8888","customer","she/her"));
+        userService.saveOrUpdate(new User("Ella@gmail.com", "Ella", "200-333-8888","customer","she/her"));
+        userService.saveOrUpdate(new User("Mom@gmail.com", "Mom", "200-333-8888","customer","she/her"));
 
 
         polishService.saveOrUpdate(new Polish(1,"Ruby on Rails"));
