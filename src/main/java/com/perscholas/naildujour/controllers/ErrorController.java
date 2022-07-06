@@ -23,16 +23,16 @@ import java.util.List;
 
 public class ErrorController {
 
-//    private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
-//
-//    @ExceptionHandler(Throwable.class)
-//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-//    public String exception(final Throwable throwable, Model model) {
-//        //custom error handler
-//        logger.error("Exception during execution of SpringSecurity application", throwable);
-//        //shorthand conditional | if this is true | then do this | else do this
-//        String errorMessage = (throwable !=null ? throwable.getMessage() : "Unknown error");
-//        model.addAttribute("errorMessage", errorMessage);
-//        return "error";
-//    }
+    private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
+
+    @ExceptionHandler(Throwable.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String exception(final Throwable throwable, Model model) {
+        //custom error handler
+        logger.error("Exception during execution of SpringSecurity application", throwable);
+        //shorthand conditional | if this is true | then do this | else do this
+        String errorMessage = (throwable !=null ? throwable.getMessage() : "Unknown error");
+        model.addAttribute("errorMessage", errorMessage);
+        return "error";
+    }
 }
