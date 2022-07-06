@@ -48,26 +48,6 @@ class NaildujourApplicationTests {
 		assertEquals("non-alcoholic", testBev.getType());
 	}
 
-	private List<> listOfPolishes;
-
-	@Before
-	public void setUp() {
-		listOfPolishes = new ArrayList<>();
-		listOfPolishes.add("blue");
-		listOfPolishes.add("red");
-		listOfPolishes.add("teal");
-		listOfPolishes.add("black");
-		listOfPolishes.add("pink");
-		listOfPolishes.add("glitter");
-	}
-
-	@After
-	public void tearDown() {
-		listOfPolishes.clear();
-	}
-
-	@Test
-	public void
 
 
 }

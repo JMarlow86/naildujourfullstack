@@ -63,7 +63,7 @@ public class ApplicationCommandLineRunner implements CommandLineRunner {
 
 
         userService.saveOrUpdate(new User("Jamie@gmail.com", "jamie", "2123338888","boss","she/her"));
-        userService.saveOrUpdate(new User("Mira@gmail.com", "Mira", "21237896888","head bitch","she/her"));
+        userService.saveOrUpdate(new User("Mira@gmail.com", "Mira", "21237896888","service provider","she/her"));
         userService.saveOrUpdate(new User("Goliath@gmail.com", "Goliath", "2003338888","customer","he/him"));
 
 
