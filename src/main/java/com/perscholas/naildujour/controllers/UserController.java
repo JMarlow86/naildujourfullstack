@@ -88,10 +88,12 @@ public class UserController {
         }
         newUser.setRole("customer");
         userService.saveOrUpdate(newUser);
+        Order newOrder = new Order();
+        model.addAttribute("order", newOrder);
         List<Polish> polishes = polishService.findAll();
         List<Beverage> beverages = beverageService.findAll();
-        model.addAttribute("polishes", polishes);
-        model.addAttribute("beverages", beverages);
+            model.addAttribute("polishes", polishes);
+            model.addAttribute("beverages", beverages);
         return "order";
     }
 

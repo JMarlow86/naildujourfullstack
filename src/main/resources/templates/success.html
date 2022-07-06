@@ -17,6 +17,8 @@
                 <span id="login">Login</span>
                 <span id="success">success!!</span>
             </div>
+            <span th:text="'Thank You ' + ${currentUser.name} +', order #'+ ${currentOrder.orderId} + ' has been placed.'"></span>
+            <span th:text="'Your ' + ${currentOrder.beverageName} + ' will be served to you soon!'"></span>
         </div>
     </div>
  </body>

@@ -42,10 +42,11 @@
         </div>
       </div>
     </div>
+    <div class="message"><span th:if="${message}"  th:text="${message}" class="errorText"></span></div>
     <div class="flex-container">
       <form action="#" th:action="@{/makeorder}" th:object="${order}"  method="post" class="ccform">
         <div class="ccfield-prepend">
-            <input class="ccformfield" type="text" th:field="*{userEmail}" placeholder="Enter Email" required>
+            <input class="ccformfield" type="text" th:field="*{userEmail}" placeholder="Enter Email" required></input>
         </div>
         <div class="select">
             <select id="polishId" th:field="*{polishId}" name="polishId">

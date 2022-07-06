@@ -62,15 +62,22 @@ public class OrderController {
                     continue; //makes it faster by exiting the loop when condition is met
             }
         }
-        if (isInSystem = false){
+        if (isInSystem == false){
             model.addAttribute("message","User does not exist, please register");
-
-            return "order";
+            List <Polish> polishes = polishService.findAll();
+            model.addAttribute("polishes", polishes);
+            List <Beverage> beverages =beverageService.findAll();
+            model.addAttribute("beverages", beverages);
+            User newUser = new User();
+            model.addAttribute("user", newUser);
+            return "login";
         }
-        orderService.saveOrUpdate(newOrder);
-        List <User> currectUser = userService.findAll();
-            model.addAttribute("currentUser", currectUser);
 
+        orderService.saveOrUpdate(newOrder);
+            User currentUser = userService.findUserByEmail(newOrder.getUserEmail());
+            //attribute name is what thymeleaf sees
+            model.addAttribute("currentUser", currentUser);
+            model.addAttribute("currentOrder", newOrder);
         return "success";
     }
 
